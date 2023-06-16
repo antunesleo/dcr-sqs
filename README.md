@@ -5,6 +5,7 @@ Testing django-celery-results with sqs broker
 
 ```sh
 $ pip install -r requirements.txt
+$ python manage.py migrate
 ```
 
 ## Run
@@ -20,4 +21,13 @@ $ celery --app dcrsqs.celery worker --loglevel=info
 $ python manage.py shell
 $ from dcrsqs.celery import add_numbers
 $ add_numbers.delay(10, 5)
+```
+
+## Check Results
+
+```sh
+$ python manage.py shell
+$ from django_celery_results.models import TaskResult
+$ tr = TaskResult.objects.first()
+$ tr.task_name, tr.task_args
 ```

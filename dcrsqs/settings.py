@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_celery_results",
 ]
 
 MIDDLEWARE = [
@@ -127,4 +128,6 @@ CELERY = {
     "broker_transport_options": {
         "region": "us-east-1",
     },
+    "result_backend": "django-db",
+    "result_extended": True
 }
