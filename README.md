@@ -23,7 +23,7 @@ $ from dcrsqs.celery import add_numbers
 $ add_numbers.delay(10, 5)
 ```
 
-## Check Results
+## Check Task Results
 
 ```sh
 $ python manage.py shell
