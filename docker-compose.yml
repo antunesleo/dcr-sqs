@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  aws-local:
+    image: localstack/localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=sqs
+    healthcheck:
+      test:
+        - CMD
+        - bash
+        - -c
+        - awslocal sqs list-queues
